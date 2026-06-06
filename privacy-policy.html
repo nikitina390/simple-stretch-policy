@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<title>Privacy Policy — Simple Daily Stretch</title>
+<meta name="description" content="Privacy Policy for the Simple Daily Stretch iOS app.">
+<style>
+  :root {
+    --accent: #6FAFF6;
+    --accent-dark: #4a8fd6;
+    --ink: #222222;
+    --muted: #5b6270;
+    --line: #e7e9ee;
+    --bg: #f7f7f8;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+  }
+  header.hero {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    color: #fff;
+    border-radius: 18px;
+    padding: 32px 26px;
+    margin: 8px 0 28px;
+    box-shadow: 0 6px 20px rgba(74,143,214,0.25);
+  }
+  header.hero h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  header.hero .sub { margin: 0; opacity: 0.95; font-size: 15px; }
+  .dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 16px;
+    font-size: 14px;
+    opacity: 0.95;
+  }
+  main {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 8px 26px 30px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 34px 0 10px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    letter-spacing: -0.01em;
+  }
+  main > section:first-of-type h2 { border-top: none; padding-top: 8px; }
+  h3 { font-size: 16px; margin: 20px 0 6px; color: var(--accent-dark); }
+  p { margin: 10px 0; }
+  ul { margin: 10px 0; padding-left: 22px; }
+  li { margin: 6px 0; }
+  a { color: var(--accent-dark); word-break: break-word; }
+  strong { color: var(--ink); }
+  .callout {
+    background: #eef6ff;
+    border: 1px solid #d4e6fb;
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 16px;
+  }
+  .contact {
+    margin-top: 26px;
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 26px;
+  }
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    header.hero h1 { font-size: 24px; }
+    main { padding: 6px 18px 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>Privacy Policy</h1>
+    <p class="sub">Simple Daily Stretch</p>
+    <div class="dates">
+      <span><strong>Effective:</strong> 6 June 2026</span>
+      <span><strong>Last updated:</strong> 6 June 2026</span>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <p>This Privacy Policy explains how the mobile application <strong>Simple Daily Stretch</strong>
+      (on-device name "Simple Stretch", iOS bundle identifier <code>com.saltin.simplestretch</code>)
+      (the "App") collects, uses, and shares information. The App is operated by
+      <strong>Sabri Altinkaya</strong>, an individual developer ("we", "us", "our").</p>
+      <div class="callout">If you have any questions about this policy or your data, contact us at
+      <a href="mailto:saltinkaya.dev@gmail.com">saltinkaya.dev@gmail.com</a>.</div>
+    </section>
+
+    <section>
+      <h2>1. Scope</h2>
+      <p>This policy applies to the Simple Daily Stretch mobile app for iOS (and the Android/web builds
+      that share the same codebase). It does not cover any third-party websites or services that the App
+      may link to.</p>
+      <p>The App is a simple stretching / fitness app. <strong>You do not create an account, and we never
+      ask for your name, email address, phone number, or any social login.</strong> When you first open the
+      App, it signs you in <strong>anonymously</strong> in the background (see "Identifiers and the anonymous
+      account" below) so that features such as push notifications and feedback can work.</p>
+    </section>
+
+    <section>
+      <h2>2. Information we collect</h2>
+
+      <h3>a. Identifiers</h3>
+      <ul>
+        <li><strong>Anonymous account identifier (Firebase Auth UID).</strong> A random identifier created
+        on launch; not tied to your name, email, or any login.</li>
+        <li><strong>App-generated device ID.</strong> A random UUID generated on first run and stored on the
+        device, used for push delivery and to distinguish devices. It is not the hardware serial number and
+        is not the Apple advertising identifier (IDFA).</li>
+        <li><strong>Push notification token (FCM / APNs token).</strong> If you allow notifications, the App
+        stores a push token (with your anonymous account and device ID) to send reminders and updates.</li>
+      </ul>
+
+      <h3>b. Usage and product-interaction data (analytics)</h3>
+      <ul>
+        <li>Screens viewed, tabs navigated, buttons tapped.</li>
+        <li>Stretching session events: session previewed/started/completed and duration.</li>
+        <li>Feedback-prompt interactions (shown, option selected, dismissed, submitted).</li>
+        <li>App version and platform (iOS/Android) for these events.</li>
+      </ul>
+      <p>Collected through <strong>Google Firebase Analytics</strong>.</p>
+
+      <h3>c. Diagnostics / performance data</h3>
+      <p>Through <strong>Microsoft Clarity</strong> and <strong>Google Firebase</strong>, aggregate
+      diagnostic, performance, and interaction data used to find and fix problems and improve the
+      experience. See Section 4.</p>
+
+      <h3>d. User content you choose to provide (feedback)</h3>
+      <ul>
+        <li>If you use the in-app feedback feature, we collect the free-text comment you type (up to 500
+        characters), the option you selected, and the related session (if any), stored with your anonymous
+        account ID, App version, and platform.</li>
+        <li>Providing feedback is optional.</li>
+      </ul>
+
+      <h3>e. Information stored only on your device (not collected by us)</h3>
+      <ul>
+        <li>Your chosen avatar and nickname (selected from a fixed set of preset characters, e.g.
+        "Calm Bear") and accent color.</li>
+        <li>Your stretch history, streak, and stats.</li>
+      </ul>
+      <p>This is stored locally and is <strong>not</strong> uploaded to our servers.</p>
+
+      <h3>f. What we do NOT collect</h3>
+      <ul>
+        <li>No real name, email, phone number, address, or precise location.</li>
+        <li>No Apple advertising identifier (IDFA); the App contains no advertising SDK.</li>
+        <li>We do not track you across other companies' apps or websites (see Section 6).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. How we use information</h2>
+      <p>We use the information described above to:</p>
+      <ul>
+        <li><strong>Operate the App</strong> — anonymous sign-in, push notifications, remember device.</li>
+        <li><strong>Understand and improve the App</strong> — feature-usage analysis, performance, bug fixing.</li>
+        <li><strong>Respond to and act on your feedback.</strong></li>
+        <li><strong>Enforce minimum-version / forced-update requirements</strong> via Firebase Remote Config
+        (a feature-flag mechanism; no personal data).</li>
+      </ul>
+      <p><strong>Legal bases (GDPR).</strong> Where the EU/UK General Data Protection Regulation applies, we
+      process this data on the basis of our <strong>legitimate interests</strong> in operating, securing, and
+      improving the App, and — where required, such as for push notifications — on the basis of your
+      <strong>consent</strong> (which you can withdraw at any time by disabling notifications in your device
+      settings).</p>
+    </section>
+
+    <section>
+      <h2>4. Session recording (Microsoft Clarity)</h2>
+      <p>The App uses <strong>Microsoft Clarity</strong>, an analytics product that performs <strong>session
+      replay and heatmaps</strong>. Clarity records your <strong>interactions with the App's interface</strong>
+      — taps, gestures, scrolling, screens visited — and reconstructs them as anonymized session replays so we
+      can see how people use the App and where they run into trouble.</p>
+      <p>By default, Clarity's native masking is enabled ("mask all"), designed to obscure on-screen text and
+      input content in these recordings. We do not use Clarity to capture personal identifying information.
+      Clarity is provided by Microsoft; its handling of data is governed by the Microsoft Privacy Statement
+      (see Section 5).</p>
+    </section>
+
+    <section>
+      <h2>5. Third-party services</h2>
+      <h3>Google Firebase (Google LLC)</h3>
+      <ul>
+        <li><strong>Firebase Analytics</strong> — usage / product-interaction analytics.</li>
+        <li><strong>Firebase Authentication</strong> — anonymous sign-in (no login credentials).</li>
+        <li><strong>Cloud Firestore</strong> — stores your push token / device record and any feedback.</li>
+        <li><strong>Firebase Cloud Messaging (FCM)</strong> — push notifications.</li>
+        <li><strong>Firebase Remote Config</strong> — remote feature flags / forced-update gate.</li>
+      </ul>
+      <p>Governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and the
+      <a href="https://firebase.google.com/support/privacy">Firebase data-processing terms</a>.</p>
+
+      <h3>Microsoft Clarity (Microsoft Corporation)</h3>
+      <ul>
+        <li><strong>Session replay and heatmaps</strong> (see Section 4).</li>
+      </ul>
+      <p>Governed by the <a href="https://privacy.microsoft.com/privacystatement">Microsoft Privacy
+      Statement</a>. See also the <a href="https://clarity.microsoft.com/terms">Clarity terms</a>.</p>
+
+      <p>These providers act as our service providers / processors and may process data on servers located
+      outside your country, including in the United States. Where the GDPR applies, such international
+      transfers are covered by the providers' Standard Contractual Clauses and equivalent safeguards.</p>
+    </section>
+
+    <section>
+      <h2>6. Data sharing and tracking</h2>
+      <ul>
+        <li>We do <strong>not</strong> sell or "share" your personal information (as those terms are defined
+        under the CCPA/CPRA), and we have no actual knowledge of selling the personal information of minors
+        under 16.</li>
+        <li>We share data only with the service providers in Section 5, who process it to provide their
+        services to us.</li>
+        <li>We do <strong>not</strong> use your data for cross-app/cross-site advertising and do
+        <strong>not</strong> use Apple's App Tracking Transparency identifier (IDFA). The App does not
+        "track" you as defined by Apple's App Tracking Transparency framework.</li>
+        <li>We may disclose information if required by law or to protect our rights.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Data retention</h2>
+      <ul>
+        <li><strong>Locally stored data</strong> (avatar, nickname, streak, history, cached tokens) remains
+        on your device until you delete the App or clear its data.</li>
+        <li><strong>Push token / device records and feedback submissions</strong> in Firestore are retained
+        only as long as needed to operate the App and act on your feedback, or until you request deletion
+        (Section 9).</li>
+        <li><strong>Analytics and session-replay data</strong> are retained according to Google's and
+        Microsoft's standard retention settings for these products; we do not retain this data for longer
+        than necessary for the purposes described in this policy.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Identifiers and the anonymous account</h2>
+      <p>You use the App without registering. The App creates an <strong>anonymous Firebase account</strong>
+      identified by a random ID, plus a <strong>random device ID</strong> generated on first launch. These
+      identifiers let the App deliver push notifications, attach your optional feedback, and analyze usage —
+      without knowing who you are. Because there is no login, these identifiers are the only way your data is
+      keyed, and we cannot link them to your real-world identity.</p>
+    </section>
+
+    <section>
+      <h2>9. Your rights and how to delete your data</h2>
+      <p>Depending on where you live, you may have rights over your personal information.</p>
+      <p><strong>If you are in the EU/EEA or the UK (GDPR / UK GDPR),</strong> you have the right to access,
+      correct, delete, restrict, or object to our processing of your data, and the right to data portability.
+      You also have the right to lodge a complaint with your local data protection authority.</p>
+      <p><strong>If you are in California (CCPA/CPRA),</strong> you have the right to know what personal
+      information we collect and how we use it, the right to delete it, and the right to opt out of its
+      "sale" or "sharing" — though, as stated in Section 6, <strong>we do not sell or share your personal
+      information.</strong> We will not discriminate against you for exercising these rights.</p>
+      <p>Because we do not collect your name or email, the practical ways to exercise these rights are:</p>
+      <ul>
+        <li><strong>Delete local data:</strong> uninstall the App, or clear its data, to remove the on-device
+        profile, history, and cached identifiers.</li>
+        <li><strong>Request server-side deletion or access:</strong> email
+        <a href="mailto:saltinkaya.dev@gmail.com">saltinkaya.dev@gmail.com</a>. To help us locate your records
+        (push token / feedback), include the approximate date and any details of feedback you submitted. We
+        will delete or provide the associated device and feedback records. We may be unable to act on a request
+        where we cannot reasonably link the data to you, given the anonymous design described in Section 8.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>10. Children's privacy</h2>
+      <p>The App is not directed to children under 13, and we do not knowingly collect personal information
+      from children under 13 (or the equivalent minimum age in your jurisdiction). If you believe a child has
+      provided us information, contact <a href="mailto:saltinkaya.dev@gmail.com">saltinkaya.dev@gmail.com</a>
+      and we will delete it.</p>
+    </section>
+
+    <section>
+      <h2>11. Changes to this policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will revise the "Last updated" date above and,
+      where appropriate, provide additional notice within the App or through other reasonable means.</p>
+    </section>
+
+    <section>
+      <h2>12. Contact</h2>
+      <div class="contact">
+        <p style="margin:0"><strong>Sabri Altinkaya</strong><br>
+        Email: <a href="mailto:saltinkaya.dev@gmail.com">saltinkaya.dev@gmail.com</a></p>
+        <p style="margin:10px 0 0">For privacy questions or to exercise any of the rights in Section 9, email
+        us at the address above and we will respond within a reasonable timeframe.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2026 Sabri Altinkaya · Simple Daily Stretch
+  </footer>
+
+</div>
+</body>
+</html>
