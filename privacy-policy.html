@@ -110,7 +110,7 @@
     <p class="sub">Simple Daily Stretch</p>
     <div class="dates">
       <span><strong>Effective:</strong> 6 June 2026</span>
-      <span><strong>Last updated:</strong> 6 June 2026</span>
+      <span><strong>Last updated:</strong> 24 November 2026</span>
     </div>
   </header>
 
@@ -133,7 +133,7 @@
       <p>The App is a simple stretching / fitness app. <strong>You do not create an account, and we never
       ask for your name, email address, phone number, or any social login.</strong> When you first open the
       App, it signs you in <strong>anonymously</strong> in the background (see "Identifiers and the anonymous
-      account" below) so that features such as push notifications and feedback can work.</p>
+      account" below) so that features such as feedback can work.</p>
     </section>
 
     <section>
@@ -143,17 +143,23 @@
       <ul>
         <li><strong>Anonymous account identifier (Firebase Auth UID).</strong> A random identifier created
         on launch; not tied to your name, email, or any login.</li>
-        <li><strong>App-generated device ID.</strong> A random UUID generated on first run and stored on the
-        device, used for push delivery and to distinguish devices. It is not the hardware serial number and
-        is not the Apple advertising identifier (IDFA).</li>
-        <li><strong>Push notification token (FCM / APNs token).</strong> If you allow notifications, the App
-        stores a push token (with your anonymous account and device ID) to send reminders and updates.</li>
+        <li>The App does <strong>not</strong> collect a push notification token or an app-generated device ID.
+        Earlier versions did; see Section 7 for how those older records are handled.</li>
       </ul>
 
       <h3>b. Usage and product-interaction data (analytics)</h3>
       <ul>
         <li>Screens viewed, tabs navigated, buttons tapped.</li>
-        <li>Stretching session events: session previewed/started/completed and duration.</li>
+        <li>Stretching session events: session previewed/started/completed/exited and duration, and whether
+        the session is one of the App's own sessions or one you made.</li>
+        <li>For sessions you make yourself: when one is created, edited, or deleted, how many moves it has,
+        its total length, and what kind of change was made (moves added, removed, reordered, or re-timed).
+        <strong>The name you give a session is never sent.</strong></li>
+        <li>Daily reminder events: whether the reminder is on, the time you chose, your notification
+        permission, whether a reminder was opened, and whether you stretched that day.</li>
+        <li>The goals you pick during onboarding (for example "less pain" or "better sleep"). Any text you type
+        for "Something else" is <strong>not</strong> sent to analytics.</li>
+        <li>Summary counts such as your total sessions, current streak, and number of saved sessions.</li>
         <li>Feedback-prompt interactions (shown, option selected, dismissed, submitted).</li>
         <li>App version and platform (iOS/Android) for these events.</li>
       </ul>
@@ -172,15 +178,27 @@
         <li>Providing feedback is optional.</li>
       </ul>
 
-      <h3>e. Information stored only on your device (not collected by us)</h3>
+      <h3>e. Onboarding answers you choose to provide</h3>
+      <ul>
+        <li>When you first open the App, you can pick the goals that matter to you. If you choose
+        "Something else", you can type your own goal (up to 200 characters).</li>
+        <li>We store your picked goals and that text with your anonymous account ID, App version, and
+        platform, so we can understand what people want from the App and improve it.</li>
+        <li>Answering is optional.</li>
+      </ul>
+
+      <h3>f. Information stored only on your device (not collected by us)</h3>
       <ul>
         <li>Your chosen avatar and nickname (selected from a fixed set of preset characters, e.g.
         "Calm Bear") and accent color.</li>
         <li>Your stretch history, streak, and stats.</li>
+        <li>Sessions you make yourself (their names, moves, and hold times) and your saved sessions.</li>
+        <li>Your daily reminder setting. Reminders are scheduled on your device by your phone's
+        operating system; no server sends them.</li>
       </ul>
       <p>This is stored locally and is <strong>not</strong> uploaded to our servers.</p>
 
-      <h3>f. What we do NOT collect</h3>
+      <h3>g. What we do NOT collect</h3>
       <ul>
         <li>No real name, email, phone number, address, or precise location.</li>
         <li>No Apple advertising identifier (IDFA); the App contains no advertising SDK.</li>
@@ -192,7 +210,7 @@
       <h2>3. How we use information</h2>
       <p>We use the information described above to:</p>
       <ul>
-        <li><strong>Operate the App</strong> — anonymous sign-in, push notifications, remember device.</li>
+        <li><strong>Operate the App</strong> — anonymous sign-in and, if you turn them on, local daily reminders.</li>
         <li><strong>Understand and improve the App</strong> — feature-usage analysis, performance, bug fixing.</li>
         <li><strong>Respond to and act on your feedback.</strong></li>
         <li><strong>Enforce minimum-version / forced-update requirements</strong> via Firebase Remote Config
@@ -200,7 +218,7 @@
       </ul>
       <p><strong>Legal bases (GDPR).</strong> Where the EU/UK General Data Protection Regulation applies, we
       process this data on the basis of our <strong>legitimate interests</strong> in operating, securing, and
-      improving the App, and — where required, such as for push notifications — on the basis of your
+      improving the App, and — where required, such as for reminder notifications — on the basis of your
       <strong>consent</strong> (which you can withdraw at any time by disabling notifications in your device
       settings).</p>
     </section>
@@ -223,8 +241,7 @@
       <ul>
         <li><strong>Firebase Analytics</strong> — usage / product-interaction analytics.</li>
         <li><strong>Firebase Authentication</strong> — anonymous sign-in (no login credentials).</li>
-        <li><strong>Cloud Firestore</strong> — stores your push token / device record and any feedback.</li>
-        <li><strong>Firebase Cloud Messaging (FCM)</strong> — push notifications.</li>
+        <li><strong>Cloud Firestore</strong> — stores any feedback and onboarding answers you choose to provide.</li>
         <li><strong>Firebase Remote Config</strong> — remote feature flags / forced-update gate.</li>
       </ul>
       <p>Governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and the
@@ -262,9 +279,11 @@
       <ul>
         <li><strong>Locally stored data</strong> (avatar, nickname, streak, history, cached tokens) remains
         on your device until you delete the App or clear its data.</li>
-        <li><strong>Push token / device records and feedback submissions</strong> in Firestore are retained
-        only as long as needed to operate the App and act on your feedback, or until you request deletion
-        (Section 9).</li>
+        <li><strong>Feedback submissions and onboarding answers</strong> in Firestore are retained only as
+        long as needed to act on them and improve the App, or until you request deletion (Section 9).</li>
+        <li><strong>Older push token / device records.</strong> Versions of the App before November 2026
+        stored a push token and a random device ID. The App no longer collects them, and we will delete the
+        remaining records once most users have updated.</li>
         <li><strong>Analytics and session-replay data</strong> are retained according to Google's and
         Microsoft's standard retention settings for these products; we do not retain this data for longer
         than necessary for the purposes described in this policy.</li>
@@ -274,10 +293,9 @@
     <section>
       <h2>8. Identifiers and the anonymous account</h2>
       <p>You use the App without registering. The App creates an <strong>anonymous Firebase account</strong>
-      identified by a random ID, plus a <strong>random device ID</strong> generated on first launch. These
-      identifiers let the App deliver push notifications, attach your optional feedback, and analyze usage —
-      without knowing who you are. Because there is no login, these identifiers are the only way your data is
-      keyed, and we cannot link them to your real-world identity.</p>
+      identified by a random ID. This identifier lets the App attach your optional feedback and onboarding
+      answers and analyze usage — without knowing who you are. Because there is no login, it is the only way
+      your data is keyed, and we cannot link it to your real-world identity.</p>
     </section>
 
     <section>
@@ -296,8 +314,8 @@
         profile, history, and cached identifiers.</li>
         <li><strong>Request server-side deletion or access:</strong> email
         <a href="mailto:saltinkaya.dev@gmail.com">saltinkaya.dev@gmail.com</a>. To help us locate your records
-        (push token / feedback), include the approximate date and any details of feedback you submitted. We
-        will delete or provide the associated device and feedback records. We may be unable to act on a request
+        (feedback / onboarding answers), include the approximate date and any details of what you submitted. We
+        will delete or provide the associated records. We may be unable to act on a request
         where we cannot reasonably link the data to you, given the anonymous design described in Section 8.</li>
       </ul>
     </section>
